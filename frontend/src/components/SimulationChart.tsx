@@ -98,8 +98,9 @@ export const SimulationChart = () => {
 
         {/* BOTTOM TIMELINE CHART */}
         {data ? (
-          <div className="shrink-0 h-[220px] 2xl:h-[280px] glass-panel rounded-lg shadow-[0_0_20px_rgba(0,240,255,0.05)] border border-cyan-800/50 p-4 relative overflow-hidden flex flex-col">
-            <h3 className="font-medium text-[10px] text-cyan-400 mb-2 font-mono tracking-widest uppercase flex items-center justify-between">
+          <div className="shrink-0 h-[220px] 2xl:h-[280px] panel-3d rounded-lg p-4 relative overflow-hidden flex flex-col group">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/5 blur-[50px] group-hover:bg-cyan-400/20 transition-all duration-700 pointer-events-none"></div>
+            <h3 className="font-medium text-[10px] text-cyan-400 mb-2 font-mono tracking-widest uppercase flex items-center justify-between z-10">
               <span>Timeline Navigator (730 Days)</span>
             </h3>
             <div className="flex-1 w-full min-h-0">
@@ -172,10 +173,15 @@ export const SimulationChart = () => {
                  <h3 className="font-bold text-[11px] text-indigo-400 flex items-center gap-2 uppercase tracking-widest mt-2 border-b border-indigo-900/50 pb-2">
                    [ AI Strategic Assessment ]
                  </h3>
-                 <div className="flex-1 overflow-y-auto space-y-3 custom-scrollbar pr-1">
+                 <div className="flex-1 overflow-y-auto space-y-3 custom-scrollbar pr-1 perspective-1000">
                     {data.insights.map((insight, idx) => (
-                      <div key={idx} className="flex flex-col gap-1.5 p-3.5 bg-[#060b17] border border-slate-800 rounded relative group hover:border-[#00f0ff]/40 transition-colors">
-                         <div className="flex items-center gap-2">
+                      <div 
+                         key={idx} 
+                         className="flex flex-col gap-1.5 p-3.5 bg-[#060b17] border border-slate-800/60 rounded relative group hover:border-[#00f0ff]/50 hover:bg-[#081226] transition-all duration-300 transform hover:-translate-y-1 hover:rotateX-2 hover:shadow-[0_10px_20px_rgba(0,240,255,0.1)]"
+                         style={{ animationDelay: `${idx * 100}ms` }}
+                      >
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                         <div className="flex items-center gap-2 relative z-10">
                              <span 
                                 className="shrink-0 w-1.5 h-1.5 rounded-full shadow-[0_0_5px_currentColor]" 
                                 style={{ backgroundColor: insight.color, color: insight.color }}
@@ -208,9 +214,9 @@ const MetricCard = ({ title, value, trend, trendColor = "emerald" }: { title: st
   };
   
   return (
-    <div className="glass-panel rounded-lg p-5 border border-cyan-800/40 relative overflow-hidden group hover:border-cyan-400/50 transition-colors shadow-lg">
-      <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-400/5 blur-[30px] rounded-full group-hover:bg-cyan-400/10 transition-colors"></div>
-      <h4 className="text-cyan-600 font-bold text-[10px] mb-2 tracking-widest uppercase font-mono">{title}</h4>
+    <div className="panel-3d rounded-lg p-5 relative overflow-visible group cursor-default h-[90px]">
+      <div className="absolute -top-10 -right-10 w-24 h-24 bg-cyan-400/10 blur-[30px] rounded-full group-hover:bg-cyan-400/20 group-hover:scale-150 transition-all duration-700 pointer-events-none"></div>
+      <h4 className="text-cyan-500 font-bold text-[10px] mb-1.5 tracking-widest uppercase font-mono group-hover:text-cyan-300 transition-colors">{title}</h4>
       <div className="flex items-baseline justify-between flex-wrap gap-2">
         <span className="text-2xl font-bold text-white tracking-widest font-mono drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">{value}</span>
         {trend && (

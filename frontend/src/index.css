@@ -21,6 +21,32 @@
   .glass-panel {
     @apply bg-[#0b152a]/80 backdrop-blur-md;
   }
+  .panel-3d {
+    @apply bg-gradient-to-br from-[#0c1a36] to-[#040a18] border border-cyan-500/30 backdrop-blur-xl relative overflow-hidden transition-all duration-300;
+    box-shadow: 
+        inset 1px 1px 0px rgba(0, 240, 255, 0.2), 
+        inset -1px -1px 0px rgba(0, 0, 0, 0.5),
+        10px 10px 30px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 240, 255, 0.05);
+  }
+  .panel-3d::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  .panel-3d:hover::after {
+    @apply opacity-100;
+  }
+  .panel-3d:hover {
+    transform: translateY(-2px) perspective(1000px) rotateX(1deg);
+    box-shadow: 
+        inset 1px 1px 0px rgba(0, 240, 255, 0.4), 
+        inset -1px -1px 0px rgba(0, 0, 0, 0.5),
+        10px 15px 40px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 240, 255, 0.15);
+  }
+  .btn-press {
+    @apply active:scale-95 active:translate-y-1 transition-transform duration-100;
+  }
 }
 
 @layer components {

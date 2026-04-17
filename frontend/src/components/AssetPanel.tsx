@@ -69,12 +69,12 @@ export const AssetPanel = () => {
   const AssetCard = ({ asset }: { asset: any }) => {
      const assetDef = ALL_ASSETS.find(t => t.type === asset.type);
      return (
-        <div className={`p-4 rounded-lg transition-all ${
+        <div className={`p-4 rounded-lg transition-all duration-300 transform perspective-1000 ${
         asset.active 
-            ? 'glass-panel neon-border bg-[#0c1a36]' 
-            : 'bg-[#060b17] border border-slate-800 opacity-60'
+            ? 'panel-3d' 
+            : 'bg-[#060b17] border border-slate-800 opacity-60 hover:opacity-100 hover:-translate-y-1 hover:shadow-lg'
         }`}>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center group">
             <div className="flex items-center gap-3">
                 <div className={`p-2 rounded-md ${asset.active ? 'bg-[#040f24] shadow-[inset_0_0_8px_rgba(0,240,255,0.2)]' : 'bg-[#0f172a]'}`}>
                 {assetDef?.icon}
@@ -94,9 +94,9 @@ export const AssetPanel = () => {
                 type="checkbox" 
                 checked={asset.active} 
                 onChange={() => toggleAsset(asset.id)} 
-                className="w-4 h-4 accent-cyan-500 cursor-pointer" 
+                className="w-4 h-4 accent-cyan-500 cursor-pointer btn-press" 
             />
-            <button onClick={() => removeAsset(asset.id)} className="text-slate-500 hover:text-rose-500 transition-colors">
+            <button onClick={() => removeAsset(asset.id)} className="text-slate-500 hover:text-rose-500 transition-colors btn-press">
                 <Trash2 className="w-4 h-4" />
             </button>
             </div>
@@ -178,7 +178,7 @@ export const AssetPanel = () => {
       </div>
 
       <div className="p-6 border-t border-[#00f0ff]/30 bg-[#080d1a] shrink-0">
-        <button onClick={() => setShowAdd(true)} className="w-full flex items-center justify-center gap-2 bg-[#0c1a36] border border-cyan-800 text-cyan-400 shadow-[0_0_10px_rgba(0,180,255,0.1)] rounded p-3 hover:border-cyan-400 hover:text-cyan-200 transition-colors uppercase tracking-widest text-[11px] font-bold">
+        <button onClick={() => setShowAdd(true)} className="w-full flex items-center justify-center gap-2 bg-[#0c1a36] border border-cyan-800 text-cyan-400 shadow-[0_0_10px_rgba(0,180,255,0.1)] rounded p-3 hover:border-cyan-400 hover:text-cyan-200 transition-colors uppercase tracking-widest text-[11px] font-bold btn-press">
           <Plus className="w-4 h-4" /> Provision Asset
         </button>
       </div>

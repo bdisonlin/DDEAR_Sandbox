@@ -87,13 +87,13 @@ export const DigitalTwinMap = () => {
                    </svg>
 
                    {/* CENTER SEMICONDUCTOR FAB */}
-                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10 pointer-events-auto">
+                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10 pointer-events-auto animate-float-slow">
                        <img 
                           src={CENTER_IMAGE} 
                           alt="Semiconductor Fab" 
-                          className="w-[450px] h-[450px] object-contain drop-shadow-[0_0_40px_rgba(0,240,255,0.5)]"
+                          className="w-[450px] h-[450px] object-contain drop-shadow-[0_0_40px_rgba(0,240,255,0.5)] transition-transform duration-1000 hover:scale-105"
                        />
-                       <div className="mt-[-60px] text-center glass-panel px-6 py-2 rounded-full border border-cyan-500/50 shadow-[0_0_20px_rgba(0,240,255,0.3)] relative z-20">
+                       <div className="mt-[-60px] text-center panel-3d px-6 py-2 rounded-full border border-cyan-500/50 shadow-[0_0_20px_rgba(0,240,255,0.3)] relative z-20">
                            <span className="text-cyan-300 font-mono text-[14px] tracking-[0.4em] font-bold uppercase drop-shadow-[0_0_8px_rgba(0,240,255,1)] textShadow"> 半導體製程主廠 </span>
                        </div>
                    </div>
@@ -124,12 +124,12 @@ export const DigitalTwinMap = () => {
 };
 
 const RadialNodeCard = ({ def }: { def: AssetNodeDef }) => (
-    <div className="flex flex-col items-center group cursor-pointer">
-        <div className="relative overflow-visible flex items-center justify-center filter group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.5)] transition-all">
+    <div className="flex flex-col items-center group cursor-pointer animate-float perspective-1000">
+        <div className="relative overflow-visible flex items-center justify-center filter group-hover:drop-shadow-[0_0_35px_rgba(255,255,255,0.6)] transition-all duration-500 transform group-hover:-translate-y-2 group-hover:rotateX-12">
             {def.img ? (
                 <img src={def.img} alt={def.title} className="w-40 h-40 object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]" />
             ) : (
-                <div className="w-32 h-32 rounded-xl border-2 glass-panel flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-xl group-hover:scale-110 transition-transform shadow-[0_20px_20px_rgba(0,0,0,0.8)]" style={{ borderColor: def.color, boxShadow: `inset 0 0 20px ${def.color}40` }}>
+                <div className="w-32 h-32 rounded-xl panel-3d flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-xl group-hover:scale-110 transition-transform duration-500 shadow-[0_20px_20px_rgba(0,0,0,0.8)]" style={{ borderColor: def.color, boxShadow: `inset 0 0 20px ${def.color}40, 10px 10px 30px rgba(0,0,0,0.8)` }}>
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(255,255,255,0.1)] to-transparent pointer-events-none"></div>
                     {def.icon}
                 </div>
@@ -138,11 +138,11 @@ const RadialNodeCard = ({ def }: { def: AssetNodeDef }) => (
         
         {/* Holographic Projection Base */}
         <div 
-           className="w-20 h-2 mt-[-10px] rounded-[50%] z-0 relative"
+           className="w-20 h-2 mt-[-10px] rounded-[50%] z-0 relative transition-all duration-500 group-hover:scale-110 group-hover:w-24 group-hover:blur-md"
            style={{ backgroundColor: def.color, filter: `blur(8px)`, opacity: 0.8 }}
         ></div>
 
-        <div className="mt-2 text-center bg-[#02050a]/90 px-3 py-1.5 rounded backdrop-blur-md border border-slate-700/80 z-10 relative shadow-[0_0_15px_rgba(0,0,0,0.8)] group-hover:border-cyan-500 transition-colors">
+        <div className="mt-4 text-center panel-3d px-3 py-1.5 rounded-md z-10 relative transform group-hover:-translate-y-1 transition-all duration-300">
             <h4 className="text-[12px] font-bold tracking-widest font-mono shadow-sm" style={{ color: def.color }}>{def.title}</h4>
         </div>
     </div>
