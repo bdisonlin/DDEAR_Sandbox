@@ -1,4 +1,3 @@
-import React from 'react';
 import { AssetPanel } from './components/AssetPanel';
 import { SimulationChart } from './components/SimulationChart';
 

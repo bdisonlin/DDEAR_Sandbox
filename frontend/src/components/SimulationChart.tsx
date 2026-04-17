@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, ComposedChart } from 'recharts';
+import { useEffect, useState } from 'react';
+import { Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, ComposedChart } from 'recharts';
 import { useSandboxStore } from '../store';
 import axios from 'axios';
 import { PlayCircle, Loader2, Activity } from 'lucide-react';

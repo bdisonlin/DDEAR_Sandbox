@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSandboxStore, type AssetType } from '../store';
-import { Plus, Trash2, Zap, Battery, Sun, Power, FileUp, Leaf, Car, Droplets, Flame, Wind } from 'lucide-react';
+import { Plus, Trash2, Zap, Battery, Sun, Power, Leaf, Car, Droplets, Flame, Wind } from 'lucide-react';
 
 const ONSITE_ASSETS: { type: AssetType; label: string; icon: React.ReactNode }[] = [
   { type: 'solar', label: '自發自用太陽能', icon: <Sun className="w-5 h-5 text-[#00f0ff]" /> },
@@ -22,13 +22,11 @@ const PPA_ASSETS: { type: AssetType; label: string; icon: React.ReactNode }[] = 
 const ALL_ASSETS = [...ONSITE_ASSETS, ...PPA_ASSETS];
 
 export const AssetPanel = () => {
-  const { assets, addAsset, removeAsset, toggleAsset, setCustomBaselineData, customBaselineData } = useSandboxStore();
+  const { assets, addAsset, removeAsset, toggleAsset } = useSandboxStore();
   const [showAdd, setShowAdd] = useState(false);
   const [newType, setNewType] = useState<AssetType>('solar');
   const [newCapacityKw, setNewCapacityKw] = useState(100);
   const [newCapacityKwh, setNewCapacityKwh] = useState(200);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
   const handleAdd = () => {
     const assetDef = ALL_ASSETS.find(t => t.type === newType);
     addAsset({
@@ -39,28 +37,6 @@ export const AssetPanel = () => {
       active: true,
     });
     setShowAdd(false);
-  };
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const text = event.target?.result as string;
-      const rawLines = text.split('\n').map(l => l.trim()).filter(l => l !== '');
-      const parsedValues = rawLines.map(v => parseFloat(v));
-      
-      const validValues = parsedValues.filter(v => !isNaN(v));
-      if (validValues.length >= 96) {
-        setCustomBaselineData(validValues.slice(0, 96));
-        alert("System Interlocked: Baseline Overridden.");
-      } else {
-        alert("Error: Baseline data corruption or insufficient rows.");
-      }
-    };
-    reader.readAsText(file);
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
   const existingOnsites = assets.filter(a => ONSITE_ASSETS.some(oa => oa.type === a.type));

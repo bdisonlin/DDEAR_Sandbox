@@ -100,7 +100,7 @@ export const DigitalTwinMap = () => {
 
                    {/* 11 RADIAL DYNAMIC NODES */}
                    {Object.entries(ASSET_DEF).map(([key, def]) => {
-                       const isActive = activeAssetTypes.includes(key);
+                       const isActive = activeAssetTypes.includes(key as AssetType);
                        const pos = getPos(def.angle, 35);
                        return (
                            <div 
