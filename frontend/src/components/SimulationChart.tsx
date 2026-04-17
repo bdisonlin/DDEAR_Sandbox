@@ -40,7 +40,9 @@ export const SimulationChart = () => {
     setLoading(true);
     try {
       const activeAssets = assets.filter(a => a.active);
-      const res = await axios.post('http://localhost:8001/simulate', {
+      const isDev = import.meta.env.DEV;
+      const API_BASE = import.meta.env.VITE_API_URL || (isDev ? 'http://localhost:8001' : '/api');
+      const res = await axios.post(`${API_BASE}/simulate`, {
         baseline_id: "demo-baseline",
         assets: activeAssets.map(a => ({
           id: a.id,

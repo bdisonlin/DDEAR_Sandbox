@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ddear-backend-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  # storageClassName: "standard" # Uncomment or change according to local cluster storage class
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddear-backend
+  labels:
+    app: ddear-backend
+spec:
+  replicas: 1  # Crucial: Must be 1 because it relies on local SQLite. Do not scale up unless migrated to PostgreSQL.
+  selector:
+    matchLabels:
+      app: ddear-backend
+  template:
+    metadata:
+      labels:
+        app: ddear-backend
+    spec:
+      containers:
+      - name: ddear-backend
+        image: ddear-sandbox-backend:latest # Update with your enterprise registry URI
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8001
+        volumeMounts:
+        - name: sqlite-data
+          mountPath: /app/sandbox.db
+          subPath: sandbox.db # Mount only the file, let the container handle the directory
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+      volumes:
+      - name: sqlite-data
+        persistentVolumeClaim:
+          claimName: ddear-backend-data-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc
+spec:
+  selector:
+    app: ddear-backend
+  ports:
+  - protocol: TCP
+    port: 8001
+    targetPort: 8001

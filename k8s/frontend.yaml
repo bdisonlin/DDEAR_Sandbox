@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddear-frontend
+  labels:
+    app: ddear-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ddear-frontend
+  template:
+    metadata:
+      labels:
+        app: ddear-frontend
+    spec:
+      containers:
+      - name: ddear-frontend
+        image: ddear-sandbox-frontend:latest # Update with your enterprise registry URI
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+    app: ddear-frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
