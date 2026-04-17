@@ -102,3 +102,60 @@ DDEAR Sandbox 是一個結合虛擬電廠 (VPP, Virtual Power Plant)、分散式
 2. 按下 `Ctrl + C` 終止目前的 Python 服務。
 3. 重新執行 `python main.py` （或使用對應的指令）重新啟動引擎。
 4. 回到瀏覽器按下 `F5` 重新整理網頁，即可恢復正常運作並讀取最新數據！
+
+---
+
+## 💻 如何開發與修改程式碼 (Development)
+
+在確認本地端已經順利運行之後，您可以開始進行功能的開發與修改。專案架構主要分為前端及後端：
+
+### 1. 前端開發 (Frontend - React + UI)
+主要開發目錄：`frontend/src/`
+- **更改樣式或版面：** 專案使用 [Tailwind CSS](https://tailwindcss.com/)。您可以直接在 React 元件的 `className` 中加入 Tailwind utilities 來變更設計。
+- **新增 UI 元件：** 在 `frontend/src/components/` 建立新的 `.tsx` 檔案，確保您的元件遵循模組化設計。
+- **狀態管理：** 前端全域狀態使用 [Zustand](https://github.com/pmndrs/zustand)。若要新增跨元件共享的變數（例如：新的能源資產、系統開關），請修改 `frontend/src/store.ts`。
+- **即時預覽：** 當執行 `npm run dev` 時，儲存檔案 (Save) 後，瀏覽器就會透過 Vite 的 Hot Module Replacement (HMR) **自動重新載入** 並呈現代碼變更。
+
+### 2. 後端開發 (Backend - Python Engine)
+主要開發目錄：`backend-simulator/`
+- **修改模擬邏輯：** 大部分的能源核心計算（如發電曲線生成、負載相加等）都在 `backend-simulator/engine.py` 內。
+- **新增 API 路由：** 如果您需要建立新的 API Endpoint（網址路徑），請在 `backend-simulator/main.py` 裡面使用 `@app.get(...)` 或 `@app.post(...)` 來進行擴充。
+- **重啟服務：** 目前後端沒有開啟自動重啟 (Hot Reload)，所以只要您修改了 `.py` 檔案，**務必** 在終端機按下 `Ctrl + C` 關閉服務，並再次執行 `python main.py` 來載入新的程式碼。
+
+---
+
+## 📤 如何將程式碼推播 (Push) 到 GitHub
+
+當您完成了階段性的本地端開發後，請按照以下步驟將修改同步到您的 GitHub 儲存庫。
+
+1. **開啟終端機並回到專案根目錄**：
+   確保您的位置在 `DDEAR_Sandbox` 根目錄，並且不要在運行伺服器的視窗中執行（您可以開一個新的終端機分頁）。
+   ```bash
+   cd ~/Documents/python/DDEAR_Sandbox
+   ```
+
+2. **檢查更改狀態**：
+   查看哪些檔案被修改、新增或刪除。
+   ```bash
+   git status
+   ```
+
+3. **將修改的檔案加入暫存區 (Stage)**：
+   如果是要將「所有修改」提交：
+   ```bash
+   git add .
+   ```
+   *（若只需提交特定檔案，請使用 `git add <檔案路徑>`）*
+
+4. **建立提交紀錄 (Commit)**：
+   為這次的修改寫下一句清晰、簡短的說明，讓自己與團隊知道變更了什麼內容。
+   ```bash
+   git commit -m "敘述您的修改，例如: 新增風力發電資產"
+   ```
+
+5. **推播至 GitHub (Push)**：
+   將暫存的變更上傳到遠端的 `main` 分支。
+   ```bash
+   git push origin main
+   ```
+   > 註：由於已經幫您設定好了 SSH (或您本機的憑證工具)，執行 `git push` 後應該不會要求再次輸入密碼即可快速完成上傳。
