@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  ddear-backend:
+    build:
+      context: ./backend-simulator
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - sqlite-data:/app
+    restart: unless-stopped
+
+  ddear-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - ddear-backend
+    restart: unless-stopped
+    # Use environment variables for API URL if needed by Vite build
+    # environment:
+    #   - VITE_API_URL=/api
+
+volumes:
+  sqlite-data:

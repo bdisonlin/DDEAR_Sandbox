@@ -39,64 +39,67 @@ DDEAR Sandbox 是一個結合虛擬電廠 (VPP, Virtual Power Plant)、分散式
 
 ## 🚀 啟動專案詳細步驟
 
-要完整運行這個 Sandbox，您需要開啟 **兩個終端機視窗 (Terminal)** 分別啟動後端引擎與前端畫面。
+要完整運行這個 Sandbox，以下提供 **兩種啟動方式**，您可以依照需求選擇：
 
-### 步驟 1：啟動 Python 模擬引擎 (API)
+### 方法一：使用 Docker 快速啟動 (推薦供展示與部署測試)
 
-這個引擎負責接收前端設定的資產，計算出全新的負載曲線。
+透過 `docker-compose` 可以一鍵啟動前端、後端服務，並且自動完成環境與 API 路由的反向代理配置，讓您的本機環境完全模擬正式部署 (Production) 的狀態。
 
-1. 打開您的終端機，並進入 Python 後端資料夾：
+1. **開啟終端機並進入專案根目錄**：
    ```bash
-   cd ~/Documents/python/DDEAR_Sandbox/backend-simulator
+   cd ~/Documents/python/DDEAR_Sandbox
    ```
 
-2. 建立 Python 虛擬環境 (Virtual Environment) 確保套件獨立：
+2. **執行 Docker Compose 進行建置與啟動**：
    ```bash
-   python3 -m venv venv
+   docker-compose up -d --build
    ```
+   *（這將會在背景啟動 `ddear-frontend` (Port 80) 以及 `ddear-backend` (Port 8001)）*
 
-3. 啟動虛擬環境：
-   - **Mac/Linux**: 
-     ```bash
-     source venv/bin/activate
-     ```
-   - **Windows**: 
-     ```bash
-     .\venv\Scripts\activate
-     ```
+3. **專案啟動完成**！現在您只要打開瀏覽器，直接前往 [http://localhost](http://localhost) 即可操作 DDEAR Sandbox。
 
-4. 安裝所需的 Python 套件 (FastAPI, uvicorn, pandas, numpy 等)：
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. 啟動 FastAPI 伺服器：
-   ```bash
-   python3 main.py
-   ```
-   > 成功啟動後，您應該會看到 `INFO: Uvicorn running on http://0.0.0.0:8001` 的訊息。不要關閉這個終端機。
+> **💡 小提示**：若要停止服務，請輸入 `docker-compose down`。
 
 ---
 
-### 步驟 2：啟動前端 Dashboard 模組
+### 方法二：開發者模式啟動 (Hot Reload 傳統作法)
 
+如果您需要直接修改程式碼並即時預覽 (Hot Reload)，請開啟 **兩個終端機視窗** 分別啟動後端引擎與前端畫面。
+
+#### 1: 啟動 Python 模擬引擎 (API)
+這個引擎負責接收前端設定的資產，計算出全新的負載曲線。
+
+1. 進入 Python 後端資料夾：
+   ```bash
+   cd backend-simulator
+   ```
+
+2. 建立小環境並啟動：
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # (Windows 請使用 .\venv\Scripts\activate)
+   ```
+
+3. 安裝依賴與啟動 FastAPI：
+   ```bash
+   pip install -r requirements.txt
+   python3 main.py
+   ```
+   > 您應該會看到 `INFO: Uvicorn running on http://0.0.0.0:8001`。不要關閉這個視窗。
+
+#### 2: 啟動前端 Dashboard 模組
 1. 打開 **全新的一個終端機視窗**，進入前端專案資料夾：
    ```bash
-   cd ~/Documents/python/DDEAR_Sandbox/frontend
+   cd frontend
    ```
 
-2. 安裝必要的 Node.js 依賴套件 (如果您是第一次拉下專案)：
+2. 安裝套件並啟動 Vite 開發伺服器：
    ```bash
    npm install
-   ```
-   *(註：本專案使用 Tailwind CSS, Zustand, Recharts, Lucide-React)*
-
-3. 啟動 Vite 開發伺服器：
-   ```bash
    npm run dev
    ```
 
-4. 專案啟動後，依據終端機顯示的 URL（通常為 `http://localhost:5173/`），打開您的網頁瀏覽器即可操作 DDEAR Sandbox。
+3. 成功啟動後，依據終端機顯示的網址（通常為 `http://localhost:5173/`）打開瀏覽器進入系統。
 
 ---
 
