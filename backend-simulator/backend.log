@@ -1,0 +1,117 @@
+INFO:     Started server process [69511]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54018 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:54018 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54036 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54035 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:54162 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:54164 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 3. Custom baseline provided: False
+INFO:     127.0.0.1:54166 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 4. Custom baseline provided: False
+INFO:     127.0.0.1:54175 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54199 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54201 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54586 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54587 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54586 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54587 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:54590 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:54611 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54635 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54634 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54634 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54635 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:54648 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54660 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54658 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54762 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54761 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54762 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54761 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54762 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54761 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54761 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54792 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54793 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54851 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54852 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:54851 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54852 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58263 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58265 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:58265 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58263 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58357 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58377 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 3. Custom baseline provided: False
+INFO:     127.0.0.1:58445 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58649 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58651 - "OPTIONS /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:58651 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58649 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58744 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58785 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58787 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58787 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58790 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58801 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58801 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58809 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58809 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58811 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:__main__:Received simulation request. Assets: 0. Custom baseline provided: False
+INFO:     127.0.0.1:58857 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58859 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 1. Custom baseline provided: False
+INFO:     127.0.0.1:58879 - "POST /simulate HTTP/1.1" 200 OK
+INFO:__main__:Received simulation request. Assets: 2. Custom baseline provided: False
+INFO:     127.0.0.1:58881 - "POST /simulate HTTP/1.1" 200 OK
